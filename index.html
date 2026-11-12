@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GastoFácil - Control de Gastos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>GastoFácil</h1>
+            <p class="subtitle">Controla tus gastos, vive tranquilo</p>
+        </header>
+
+        <main>
+            <!-- Resumen de Métricas -->
+            <section class="summary-grid">
+                <div class="card metric-card">
+                    <h3>Presupuesto Mensual</h3>
+                    <div class="input-group">
+                        <span class="currency">$</span>
+                        <input type="number" id="monthly-budget" placeholder="0.00">
+                    </div>
+                    <button id="set-budget-btn" class="btn-secondary">Actualizar</button>
+                </div>
+                <div class="card metric-card highlight">
+                    <h3>Saldo Restante</h3>
+                    <p id="remaining-balance" class="amount">$0.00</p>
+                </div>
+                <div class="card metric-card">
+                    <h3>Gasto Diario Sugerido</h3>
+                    <p id="daily-limit" class="amount">$0.00</p>
+                    <small id="days-left-text">Quedan X días</small>
+                </div>
+            </section>
+
+            <div class="content-layout">
+                <!-- Formulario de Gasto -->
+                <section class="expense-form-section">
+                    <div class="card">
+                        <h2>Registrar Nuevo Gasto</h2>
+                        <form id="expense-form">
+                            <div class="form-group">
+                                <label for="expense-amount">Monto</label>
+                                <div class="input-group">
+                                    <span class="currency">$</span>
+                                    <input type="number" id="expense-amount" step="0.01" required placeholder="0.00">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="expense-category">Categoría</label>
+                                <select id="expense-category" required>
+                                    <option value="" disabled selected>Selecciona una categoría</option>
+                                    <option value="Comida">Comida</option>
+                                    <option value="Transporte">Transporte</option>
+                                    <option value="Servicios">Servicios</option>
+                                    <option value="Ocio">Ocio</option>
+                                    <option value="Otros">Otros</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="expense-desc">Descripción (opcional)</label>
+                                <input type="text" id="expense-desc" placeholder="Ej: Almuerzo">
+                            </div>
+                            <button type="submit" class="btn-primary">Agregar Gasto</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Historial de Gastos -->
+                <section class="history-section">
+                    <div class="card">
+                        <div class="history-header">
+                            <h2>Historial de Gastos</h2>
+                            <button id="clear-history" class="btn-text">Limpiar todo</button>
+                        </div>
+                        <div class="history-list-container">
+                            <ul id="expense-list">
+                                <!-- Los gastos se insertarán aquí dinámicamente -->
+                            </ul>
+                            <p id="no-expenses" class="empty-state">No hay gastos registrados aún.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 GastoFácil - Gestión Personal</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
